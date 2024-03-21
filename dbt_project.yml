@@ -1,0 +1,33 @@
+# Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: "dbt_horse_racing"
+version: "1.0.0"
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: "dbt_horses_project"
+
+# These configurations specify where dbt should look for different types of files.
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+seed-paths: ["seeds"]
+docs-paths: ["docs"]
+
+target-path: "target" # directory which will store compiled SQL files
+clean-targets: # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+# Model config
+models:
+  dbt_horse_racing:
+    marts:
+      schema: horses_marts
+      materialized: table
+    staging:
+      schema: horses_staging
+      materialized: view

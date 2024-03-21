@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: horse_raw_data
+    schema: lily_dbt_source
+    description: This dataset contains sample data about Sky customers, sky_passes and purchases
+
+    tables:
+      - name: races
+        description: This column contains customer data
+        columns:
+          - name: customer_id
+            description: This column contains unique customer ids
+            tests:
+              - unique
+              - not_null
