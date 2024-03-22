@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: horse_raw_data
+    schema: lily_dbt_source
+    description: This dataset contains the source data for the project
+
+    tables:
+      - name: races
+        description: This table contains all the race data, including horse information

@@ -9,7 +9,7 @@ config-version: 2
 profile: "dbt_horses_project"
 
 # These configurations specify where dbt should look for different types of files.
-source-paths: ["models"]
+model-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
 macro-paths: ["macros"]
@@ -25,9 +25,12 @@ clean-targets: # directories to be removed by `dbt clean`
 # Model config
 models:
   dbt_horse_racing:
-    marts:
+    intermediate:
       schema: horses_marts
       materialized: table
     staging:
       schema: horses_staging
       materialized: view
+    reporting:
+      schema: horses_reporting
+      materialized: table
